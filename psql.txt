@@ -1,0 +1,51 @@
+
+docker-compose exec db bash
+docker-compose exec web-1 bash
+docker-compose build
+
+docker-compose up
+docker-compose down -v
+
+docker ps and docker rm -f <ids>)
+
+docker-compo
+echo "host    all           all             0.0.0.0/0            md5" >> /var/lib/postgresql/data/pg_hba.conf
+
+
+host     all             all             0.0.0.0/0               md5
+
+
+CREATE TABLE accounts (
+	id serial PRIMARY KEY,
+	name VARCHAR ( 50 ) NOT NULL,
+	age int NOT NULL
+);
+
+psql -U postgres -h db -W
+
+ALTER ROLE postgres WITH PASSWORD 'postgrespw';
+
+insert into accounts(name,age) values('reddin', '23');
+setx /m JAVA_HOME "C:\Program Files\Java\jdk-19\"
+"C:\Users\Windows\Downloads\postgresql-42.5.1.jar"
+C:\Program Files\Java\jdk-19\
+C:\Users\Windows\Documents\spark-3.3.1-bin-hadoop3
+
+C:/Users/Windows/Documents/spark-3.3.1-bin-hadoop3
+jdbcDF = spark.read.format("jdbc").options(
+         url='jdbc:postgresql://localhost:5432/emp',
+         dbtable='accounts',
+         user='postgres',
+         password='postgrespw',
+         driver='org.postgresql.Driver').load()
+
+
+import pyspark
+from pyspark.sql import SparkSession
+from pyspark.sql import Row
+spark = SparkSession.builder.config("spark.jars", "C:/Users/Windows/Downloads/postgresql-42.5.1.jar") \
+.master("local[*]").appName("pyspark_learning").getOrCreate()
+df = spark.read.format("jdbc").option("url", "jdbc:postgresql://localhost:32768/emp") \
+    .option("driver", "org.postgresql.Driver").option("dbtable", "accounts") \
+    .option("user", "postgres").option("password", "postgrespw").load()
+df.show()
